@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <p
+    className="MuiTypography-root makeStyles-root-1 MuiTypography-body1"
+  >
+    Welcome to the weather app
+  </p>,
+  <p
+    className="MuiTypography-root makeStyles-root-2 MuiTypography-body1"
+  >
+    Select a city to show its weather
+  </p>,
+]
+`;
