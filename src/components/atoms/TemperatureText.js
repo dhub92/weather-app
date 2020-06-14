@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, makeStyles } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
+import PropTypes from 'prop-types';
 
 const useLargeStyles = makeStyles({
     root: {
@@ -16,10 +17,16 @@ const useSmallStyles = makeStyles({
         color: grey[600],
     }
 });
-const TemperatureText = ({isLarge, children}) => {
+const TemperatureText = ({isLarge=false, children}) => {
 const largeClasses = useLargeStyles();
 const smallClasses = useSmallStyles()
 
 return <Typography className={isLarge ? largeClasses.root: smallClasses.root}>{children}</Typography>
 }
+
+TemperatureText.propTypes={
+    isLarge: PropTypes.bool,
+    children: PropTypes.node
+}
+
 export default TemperatureText;

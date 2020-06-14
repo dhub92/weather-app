@@ -3,6 +3,7 @@ import {
   getCurrentWeather,
   getHistoricalWeather,
   getForecastedWeather,
+  setIsLoadingValue,
 } from "../actions/actions";
 import {
   extractCurrentWeatherInfo,
@@ -20,6 +21,7 @@ export const getCurrentWeatherService = ({ lat, lon }) => async (dispatch) => {
       `${baseURL}?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${appId}`
     )
     .then((response) => {
+      dispatch(setIsLoadingValue(false));
       dispatch(getCurrentWeather(extractCurrentWeatherInfo(response.data)));
       dispatch(
         getForecastedWeather(extractForecastedWeatherInfo(response.data))

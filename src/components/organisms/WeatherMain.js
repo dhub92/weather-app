@@ -11,11 +11,13 @@ import ExtraWeather from "../molecules/ExtraWeather";
 import { useSelector } from "react-redux";
 import { isEmpty } from "lodash";
 import WelcomeText from "../atoms/WelcomeText";
+import { DisappearedLoading } from "react-loadingg";
+import { grey } from "@material-ui/core/colors";
 
 const WeatherMain = () => {
   const containerStyle = makeStyles({
     root: {
-      width: "40rem",
+      width: "100%",
     },
   })();
 
@@ -24,13 +26,17 @@ const WeatherMain = () => {
   const [showHistoricalDays, setShowHistoricalDays] = useState(false);
   const [showForecastedDays, setShowForecastedDays] = useState(false);
 
-  const { currentWeather, forecastedWeather, historicalWeather } = useSelector(
-    (state) => ({
-      currentWeather: state.currentWeather,
-      forecastedWeather: state.forecastedWeather,
-      historicalWeather: state.historicalWeather,
-    })
-  );
+  const {
+    currentWeather,
+    forecastedWeather,
+    historicalWeather,
+    isLoading,
+  } = useSelector((state) => ({
+    currentWeather: state.currentWeather,
+    forecastedWeather: state.forecastedWeather,
+    historicalWeather: state.historicalWeather,
+    isLoading: state.isLoading,
+  }));
 
   useEffect(() => {
     if (!isEmpty(currentWeather)) {
@@ -60,7 +66,7 @@ const WeatherMain = () => {
               color="primary"
             />
           }
-          label="Show the last 5 days "
+          label="Show the latest 5 days "
         />
         <FormControlLabel
           control={
@@ -74,7 +80,7 @@ const WeatherMain = () => {
               color="primary"
             />
           }
-          label="Show forecasted 7 days"
+          label="Show the predicted 7 days"
         />
       </FormGroup>
       <br />
@@ -91,7 +97,14 @@ const WeatherMain = () => {
       alignItems="center"
       direction="column"
     >
-      {isEmpty(currentWeather) ? <WelcomeText /> : loadedInfo}
+      {isEmpty(currentWeather) ? (
+        <WelcomeText />
+      ) : isLoading ? (
+        //Style prop has an empty prop for centering the DisappearedLoading component into the Grid container
+        <DisappearedLoading style={{}} size="large" color={grey[600]} />
+      ) : (
+        loadedInfo
+      )}
     </Grid>
   );
 };

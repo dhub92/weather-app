@@ -13,16 +13,16 @@ describe('DayNameText test', () =>{
     beforeEach(()=>{
         props ={
             weatherList: [{
-                id: '1',
+                id: 1,
                 dayName: 'test',
                 temperature: '11°C',
-                weather:[{icon: '01d', description: 'clouds'}]
+                weather:{icon: '01d', description: 'clouds'}
             },
             {
-                id: '2',
+                id: 2,
                 dayName: 'test 2',
                 temperature: '11°C',
-                weather:[{icon: '01d', description: 'clouds'}]
+                weather:{icon: '01d', description: 'clouds'}
             }],
         }
         wrapper = shallow(<ExtraWeather {...props} />);

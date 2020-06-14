@@ -1,6 +1,7 @@
 import React from 'react';
 import { grey } from '@material-ui/core/colors';
 import { Typography, makeStyles } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const useLargeStyles = makeStyles({
     root: {
@@ -16,10 +17,15 @@ const useSmallStyles = makeStyles({
     }
 });
 
-const DayTimeText = ({children, isLarge}) =>{
+const DayTimeText = ({children, isLarge = false}) =>{
     const largeClasses = useLargeStyles();
-const smallClasses = useSmallStyles()
+    const smallClasses = useSmallStyles()
     return <Typography className={isLarge ? largeClasses.root : smallClasses.root}>{children}</Typography>
+}
+
+DayTimeText.propTypes={
+    children: PropTypes.node,
+    isLarge: PropTypes.bool,
 }
 
 export default DayTimeText;

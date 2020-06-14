@@ -9,7 +9,7 @@ import TemperatureText from "../../atoms/TemperatureText"
 
 configure({ adapter: new Adapter() });
 
-describe("DayNameText test", () => {
+describe("WeatherInfo test", () => {
   let props;
   let wrapper;
 
