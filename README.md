@@ -25,4 +25,4 @@ A simple web application that shows weather of ten cities using React js and Ope
 * If you check **Show the predicted 7 days** option, a row with the predicted seven days with its weather information will appear down of the current weather
 * Keep in mind that you cannot select both options at the same times 
 # Observation
-* The OpenWeatherMap API key has some constraints when you call it throught the app. You cannot do more than 60 calls per minute and 1 million calls per month.
+* The OpenWeatherMap API key has some constraints when you call it throught the app. You cannot do more than 60 calls per minute and 1 million calls per month. Also, you cannot do more than 1000 calls per day.
