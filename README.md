@@ -1,5 +1,5 @@
 # Weather App
-A simple web application that shows weather of ten cities using React js and OpenWeatherMap API
+A simple web application that shows weather of ten cities using React js and OpenWeatherMap API. You can see the app working [here](https://dhub92.github.io/weather-app/)
 # Technologies used for this proyect
 * React js
 * Redux js
